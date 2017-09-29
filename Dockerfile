@@ -1,9 +1,6 @@
 FROM nginx
-
 RUN rm /etc/nginx/conf.d/default.conf
+ADD default.conf /etc/nginx/sites-available/
+CMD ["ln -s", "/etc/nginx/sites-available/", "/etc/nginx/sites-enabled"]
+RUN service nginx start
 
-#RUN rm /etc/nginx/conf.d/examplessl.conf
-
-#COPY content /usr/share/nginx/html
-
-COPY default.conf /etc/nginx/conf.d/

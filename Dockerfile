@@ -1,6 +1,6 @@
 FROM nginx
 RUN rm /etc/nginx/conf.d/*
-RUN apt-get -qq -y install vim
+RUN RUN apt-get update && apt-get install -qq -y vim
 ADD default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80 443
 
